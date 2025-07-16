@@ -8,4 +8,8 @@ use Illuminate\Database\Eloquent\Model;
 class FormaPagamento extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'tipo'
+    ];
 }

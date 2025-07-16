@@ -9,5 +9,12 @@ class Categoria extends Model
 {
     use HasFactory;
 
-    
+    protected $fillable = [
+        'nome',
+        'despesa'
+    ];
+
+    protected $casts = [
+        'despesa' => 'bool'
+    ];
 }
