@@ -20,7 +20,7 @@ return new class extends Migration
             $table->foreignId('formapagamento_id');
             $table->integer('parcelamento');
             $table->char('status', 1);
-            $table->foreignId('usuario_id');
+            $table->foreignId('user_id');
             $table->boolean('despesa');
             $table->text('descricao');
             $table->timestamps();
