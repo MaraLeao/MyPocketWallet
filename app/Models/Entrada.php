@@ -7,6 +7,15 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 
 
+/**
+ * @property-read \App\Models\Categoria|null $categoria
+ * @property-read \App\Models\FormaPagamento|null $formaPagamento
+ * @property-read \App\Models\User|null $usuario
+ * @method static \Illuminate\Database\Eloquent\Builder|Entrada newModelQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Entrada newQuery()
+ * @method static \Illuminate\Database\Eloquent\Builder|Entrada query()
+ * @mixin \Eloquent
+ */
 class Entrada extends Model
 {
     use HasFactory;
