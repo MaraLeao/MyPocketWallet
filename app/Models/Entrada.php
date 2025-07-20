@@ -30,7 +30,6 @@ class Entrada extends Model
         'descricao',
         'status',
         'user_id',
-        'despesa'
     ];
 
     public function categoria(): BelongsTo {
@@ -49,7 +48,6 @@ class Entrada extends Model
     protected $casts = [
         'valor' => 'int',
         'data' => 'date',
-        'parcelamento' => 'int',
-        'despesa' => 'bool'
+        'parcelamento' => 'int'
     ];
 }

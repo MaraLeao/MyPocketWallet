@@ -21,5 +21,7 @@ Route::get('/', function () {
 });
 
 Route::get('/entradas', [EntradaController::class, 'index']);
+Route::get('/entradas/create/despesa', [EntradaController::class, 'createDespesa']);
+Route::get('/entradas/create/ganho', [EntradaController::class, 'createGanho']);
 
 Route::get('/users/{id}', [UserController::class, 'show']);
