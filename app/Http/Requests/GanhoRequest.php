@@ -31,7 +31,8 @@ class GanhoRequest extends FormRequest
                 ],
             'data' => 'required|date',
             'status' => 'required|in:G',
-            'user_id' => 'nullable|exists:users,id'
+            'user_id' => 'nullable|exists:users,id',
+            'descricao' => 'nullable|string|max:255'
         ];
     }
 }
