@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\FPController;
+use App\Models\Categoria;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\EntradaController;
 use App\Http\Controllers\UserController;
@@ -30,5 +31,10 @@ Route::get('/formapagamentos', [FPController::class, 'index']);
 Route::get('/formapagamentos/create', [FPController::class, 'create']);
 Route::get('/formapagamentos/edit/{id}', [FPController::class, 'edit']);
 Route::get('/formapagamentos/delete/{id}', [FPController::class, 'delete']);
+
+Route::get('/categorias', [Categoria::class, 'index']);
+Route::get('/categorias/create', [Categoria::class, 'create']);
+Route::get('/categorias/edit/{id}', [Categoria::class, 'edit']);
+Route::get('/categorias/delete/{id}', [Categoria::class, 'delete']);
 
 Route::get('/users/{id}', [UserController::class, 'show']);
