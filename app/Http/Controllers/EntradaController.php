@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\DespesaRequest;
+use App\Http\Requests\GanhoRequest;
 use App\Models\Entrada;
 use App\Models\Categoria;
 use App\Models\FormaPagamento;
@@ -24,7 +25,6 @@ class EntradaController extends Controller
     public function createGanho(): View
     {
         return view('entrada.create.ganho', [
-            'depesa' => false,
             'categorias' => Categoria::all(),
             'formapagamentos' => FormaPagamento::all()
         ]);
@@ -40,7 +40,6 @@ class EntradaController extends Controller
     public function createDespesa(): View
     {
         return view('entrada.create.despesa', [
-            'depesa' => true,
             'categorias' => Categoria::all(),
             'formapagamentos' => FormaPagamento::all()
         ]);
@@ -61,11 +60,26 @@ class EntradaController extends Controller
         ]);
     }
 
-    public function update(Request $request,int $id): RedirectResponse
+    public function updateDespesa(DespesaRequest $request,int $id): RedirectResponse
     {
         $entrada = Entrada::findOrFail($id);
         $entrada->update($request->validated());
 
         return redirect()->route('entrada.index')->with('success','Entrada atualizada com sucesso' );
+    }
+
+    public function updateGanho(GanhoRequest $request,int $id): RedirectResponse
+    {
+        $entrada = Entrada::findOrFail($id);
+        $entrada->update($request->validated());
+
+        return redirect()->route('entrada.index')->with('success','Entrada atualizada com sucesso' );
+    }
+
+    public function destroy(int $id): RedirectResponse
+    {
+        $entrada = Entrada::findOrFail($id);
+        $entrada->delete();
+        return redirect('/entradas')->with('success','Entrada apagada com sucesso' );
     }
 }
