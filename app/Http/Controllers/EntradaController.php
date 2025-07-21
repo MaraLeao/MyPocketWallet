@@ -18,7 +18,7 @@ class EntradaController extends Controller
 {
     public function index(): View
     {
-        return view('entrada/index', [
+        return view('entradas/index', [
             'entradas' => Entrada::all()
         ]);
     }
@@ -60,7 +60,7 @@ class EntradaController extends Controller
         ]);
     }
 
-    public function updateDespesa(DespesaRequest $request,int $id): RedirectResponse
+    public function updateDespesa(DespesaRequest $request, int $id): RedirectResponse
     {
         $entrada = Entrada::findOrFail($id);
         $entrada->update($request->validated());
@@ -68,7 +68,7 @@ class EntradaController extends Controller
         return redirect()->route('entrada.index')->with('success','Entrada atualizada com sucesso' );
     }
 
-    public function updateGanho(GanhoRequest $request,int $id): RedirectResponse
+    public function updateGanho(GanhoRequest $request, int $id): RedirectResponse
     {
         $entrada = Entrada::findOrFail($id);
         $entrada->update($request->validated());
