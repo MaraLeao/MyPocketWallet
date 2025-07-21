@@ -18,7 +18,7 @@ class EntradaController extends Controller
 {
     public function index(): View
     {
-        return view('entradas/index', [
+        return view('entradas.index', [
             'entradas' => Entrada::all()
         ]);
     }
